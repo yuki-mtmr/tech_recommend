@@ -1,0 +1,17 @@
+<%= render 'search'%>
+
+<div class="contents row">
+  <div class="container text-center">
+    <div class="form-group">
+      <%= form_with(model: @post, local: true) do |form| %>
+        <p class="text-muted pt-5">
+          テックエキスパートで勉強する時に役立つ記事を投稿してください。
+        </p>
+        <%= image_tag 'article_tech.png', class: "img-fluid mx-auto d-block col-md-4  pb-3" %>
+        <%= form.text_field :name, placeholder: "ニックネーム" %>
+        <%= form.text_field :url, class: "col-md-5", placeholder: "おすすめの記事のURL" %>
+      </div>
+        <%= form.submit "投稿する", class: "btn btn-outline-dark" %>
+      <% end %>
+  </div>
+</div>

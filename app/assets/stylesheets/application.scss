@@ -1,0 +1,19 @@
+@import "bootstrap";
+
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+
+body {
+  width: 80%;
+  margin:0 auto;
+}
+a {
+  color:$dark;
+  text-decoration:none;
+}
+a:hover {
+  color:$dark;
+  text-decoration:none;
+}
+
