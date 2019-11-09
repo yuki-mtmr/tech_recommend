@@ -69,3 +69,4 @@ gem 'nokogiri'
 gem 'bootstrap', '~> 4.3.1'
 gem 'sprockets-rails'
 gem 'jquery-rails'
+gem "omniauth-rails_csrf_protection"
