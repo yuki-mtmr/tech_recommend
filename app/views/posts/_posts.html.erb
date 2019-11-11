@@ -12,13 +12,19 @@
     description = doc.css('//meta[property="og:description"]/@content').to_s
     img = doc.css('//meta[property="og:image"]/@content').to_s %>
   <div class="col-md-4">
-    <a href="<%= url %>"> 
+    <a href="<%= url %>" target="_blank" rel="noopener"> 
       <img src="<%= img %>" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title"><%= title  %></h5>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <h5 class="card-title"><%= truncate(title, length:50)%></h5>
+        <p class="card-text"><%= truncate(description, length:50)%></p>
       </div>
     </a>
+        <p class="card-text text-right"><small class="text-muted">
+          <%= link_to post_path(post.id), method: :delete do %> 
+            <%= icon("fas", "trash-alt")%>
+          <% end %>
+        </small>
+        </p>
   </div>
   <% end %>
 </div>

@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import 'font-awesome';
 
 //= require jquery3
 //= require popper
@@ -15,5 +17,9 @@ a {
 a:hover {
   color:$dark;
   text-decoration:none;
+}
+
+.background-image {
+  background-image: url(/images/bgi.jpg);
 }
 
