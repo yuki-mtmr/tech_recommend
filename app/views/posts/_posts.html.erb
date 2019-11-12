@@ -12,22 +12,26 @@
     description = doc.css('//meta[property="og:description"]/@content').to_s
     img = doc.css('//meta[property="og:image"]/@content').to_s %>
   <div class="col-md-4 mb-3">
-    <a href="<%= url %>" target="_blank" rel="noopener"> 
-      <img src="<%= img %>" class="card-img-top" alt="...">
+    <a href="<%= url %>" target="_blank" rel="noopener">
+      <div class="zoomIn">
+        <img src="<%= img %>" class="card-img-top" alt="...">
+      </div>
       <div class="card-body">
         <h5 class="card-title"><%= truncate(title, length:50)%></h5>
         <p class="card-text"><%= truncate(description, length:50)%></p>
       </div>
     </a>
       <p class="card-text d-flex justify-content-between">
-        <a href="/users/#{current_user.id}">
+        <a href="/users/<%= post.user.id %>">
           <%= post.user.name %>
         </a>
-        <small>
-          <%= link_to post_path(post.id), method: :delete do %> 
-            <%= icon("fas", "trash-alt")%>
-          <% end %>
-        </small>
+        <% if user_signed_in? && current_user.id == post.user_id %>
+          <small>
+            <%= link_to post_path(post.id), method: :delete do %> 
+              <%= icon("fas", "trash-alt")%>
+            <% end %>
+          </small>
+        <% end %>
       </p>
   </div>
   <% end %>
