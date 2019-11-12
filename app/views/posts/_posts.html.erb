@@ -18,8 +18,11 @@
         <h5 class="card-title"><%= truncate(title, length:50)%></h5>
         <p class="card-text"><%= truncate(description, length:50)%></p>
       </div>
-    </a>
-      <p class="card-text text-right">
+    </a>
+      <p class="card-text d-flex justify-content-between">
+        <a href="/users/#{current_user.id}">
+          <%= post.user.name %>
+        </a>
         <small>
           <%= link_to post_path(post.id), method: :delete do %> 
             <%= icon("fas", "trash-alt")%>

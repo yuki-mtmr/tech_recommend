@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   require 'open-uri'
 
   def index
-    @posts = Post.all
+    @posts = Post.includes(:user)
   end
 
   def new
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_params)
+    @post = Post.create(post_params)
     redirect_to root_path
   end
 
