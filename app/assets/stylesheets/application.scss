@@ -19,3 +19,15 @@ a:hover {
   text-decoration:none;
 }
 
+.zoomIn {
+  overflow:hidden;
+}
+
+.zoomIn img {
+  display: block;
+  transition-duration: 0.3s;
+}
+.zoomIn:hover img {
+  transform: scale(1.2);
+  transition-duration: 0.3s;
+}
