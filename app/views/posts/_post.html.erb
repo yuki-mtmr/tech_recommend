@@ -1,14 +1,15 @@
 <%url = post.url%>
+<% charset = nil %>
+<% html = open(url) do |f|
+  charset = f.charset 
+  f.read %> 
+<% end %>
+<% doc = Nokogiri::HTML.parse(html, charset)
 
-    <% charset = nil %>
-    <% html = open(url) do |f|
-    charset = f.charset 
-    f.read %> 
-    <% end %>
-    <% doc = Nokogiri::HTML.parse(html, charset)
-    title = doc.title.to_s
-    description = doc.css('//meta[property="og:description"]/@content').to_s
-    img = doc.css('//meta[property="og:image"]/@content').to_s %>
+title = doc.title.to_s
+description = doc.css('//meta[property="og:description"]/@content').to_s
+img = doc.css('//meta[property="og:image"]/@content').to_s %>
+
   <div class="col-md-4 mb-3">
     <a href="<%= url %>" target="_blank" rel="noopener">
       <div class="zoomIn">
