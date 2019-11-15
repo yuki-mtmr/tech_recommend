@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  require 'nokogiri'
-  require 'open-uri'
 
   def index
     @posts = Post.includes(:user).order("created_at DESC")

@@ -1,23 +1,11 @@
-<%url = post.url%>
-<% charset = nil %>
-<% html = open(url) do |f|
-  charset = f.charset 
-  f.read %> 
-<% end %>
-<% doc = Nokogiri::HTML.parse(html, charset)
-
-title = doc.title.to_s
-description = doc.css('//meta[property="og:description"]/@content').to_s
-img = doc.css('//meta[property="og:image"]/@content').to_s %>
-
   <div class="col-md-4 mb-3">
-    <a href="<%= url %>" target="_blank" rel="noopener">
+    <a href="<%= post.url %>" target="_blank" rel="noopener">
       <div class="zoomIn">
-        <img src="<%= img %>" class="card-img-top" alt="...">
+        <img src="<%= post.scrape.css('//meta[property="og:image"]/@content').to_s %>" class="card-img-top" alt="...">
       </div>
       <div class="card-body">
-        <h5 class="card-title"><%= truncate(title, length:50)%></h5>
-        <p class="card-text"><%= truncate(description, length:50)%></p>
+        <h5 class="card-title"><%= truncate(post.scrape.title.to_s, length:50)%></h5>
+        <p class="card-text"><%= truncate(post.scrape.css('//meta[property="og:image"]/@content').to_s, length:50)%></p>
       </div>
     </a>
       <p class="card-text d-flex justify-content-between">
