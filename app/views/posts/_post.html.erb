@@ -1,11 +1,11 @@
   <div class="col-md-4 mb-3">
     <a href="<%= post.url %>" target="_blank" rel="noopener">
       <div class="zoomIn">
-        <img src="<%= post.scrape.css('//meta[property="og:image"]/@content').to_s %>" class="card-img-top" alt="...">
+        <img src="<%= post.img %>" class="card-img-top" alt="...">
       </div>
       <div class="card-body">
-        <h5 class="card-title"><%= truncate(post.scrape.title.to_s, length:50)%></h5>
-        <p class="card-text"><%= truncate(post.scrape.css('//meta[property="og:image"]/@content').to_s, length:50)%></p>
+        <h5 class="card-title"><%= truncate(post.title.to_s, length:50)%></h5>
+        <p class="card-text"><%= truncate(post.description.to_s, length:50)%></p>
       </div>
     </a>
       <p class="card-text d-flex justify-content-between">
