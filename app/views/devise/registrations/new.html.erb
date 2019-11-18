@@ -7,12 +7,14 @@
 
         <div class="field">
           <%= f.label :name %><br />
-          <%= f.text_field :name, autofocus: true, maxlength: "6", size: 20 %>
+            <%= f.text_field :name, autofocus: true, maxlength: "6", size: 20 %>
+        </div>
+
+        <div class="field ">
           <%= f.label :image, class: 'input-box__image' do %>
             <%= icon("fas", "picture-o") %>
             <%= f.file_field :image, class: 'hidden' %>
           <% end %>
-
         </div>
         
         <div class="field">
