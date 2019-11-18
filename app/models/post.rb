@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   require 'nokogiri'
   require 'open-uri'
 
+
   before_save :scrape
 
   validates :url, presence: true
@@ -10,7 +11,7 @@ class Post < ApplicationRecord
 
   def self.search(search)
     return Post.all unless search
-    Post.where('url LIKE(?)', "%#{search}%")
+    Post.where('title LIKE(?)', "%#{search}%")
   end
 
   def scrape
