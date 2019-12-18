@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+
   require 'nokogiri'
   require 'open-uri'
 
@@ -29,7 +30,5 @@ class Post < ApplicationRecord
     self.title = title
     self.description = description
   end
-
-  
 
 end
