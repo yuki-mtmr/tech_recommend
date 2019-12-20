@@ -1,16 +1,16 @@
+img {
+  object-fit: cover;
+  transform: perspective(0);
+}
 .zoomIn {
   overflow:hidden;
 }
 .zoomIn img {
   display: block;
-  transition-duration: 0.3s;
+  transition: 0.3s ease-out;
 }
 .zoomIn:hover img {
   transform: scale(1.2);
   transition-duration: 0.3s;
-}
-.zoomIn img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover; /* この一行を追加するだけ！ */
+  will-change: transform;
 }
