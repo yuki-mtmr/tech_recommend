@@ -13,13 +13,11 @@
   <body>
 
   <%= render 'layouts/notifications'%>
-  <%= render 'layouts/navbar'%>
+  <%= render 'users/nav'%>
 
     <%= yield %>
-    <footer class="footer">
-      <div class="container bg-light pt-2 pb-1">
-        <p class="text-muted text-center ">&copy;2019 Tech Recommend. All rights reserved.</p>
-      </div>
-    </footer>
+
+  <%= render 'layouts/footer'%>
+
   </body>
 </html>

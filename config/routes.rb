@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index, :new, :create, :destroy]
 
-  resources :users, only: :show
+  resources :users do
+    collection do
+      get 'dashboard'
+    end
+  end
 
   resources :posts do
     collection do
@@ -13,5 +17,5 @@ Rails.application.routes.draw do
       get 'about'
     end
   end
-  
+
 end
