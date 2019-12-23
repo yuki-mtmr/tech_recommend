@@ -16,19 +16,24 @@
       </ul>
       <% if user_signed_in? %>
           <ul class="navbar-nav">
-            <li class="nav-item pt-2 mr-2">
-              <%= link_to dashboard_users_path do %>
-              <%= image_tag current_user.image.url, size: '30x30' %>
-              <%= current_user.name %>
-            </li>
-            <% end %>
-            <li class="nav-item">
-            </li>
-            <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, class: "nav-link", method: :delete %>
             <li class="nav-item">
               <%= link_to "投稿する", new_post_path, class: "nav-link" %>
             </li>
+            <div class="dropdown show">
+              <li class="nav-item pt-2 mr-2 dropdown-toggle cursor-pointer" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <% if current_user.image.blank? %>
+                  <%= image_tag 'default_user.png', size: '30x30' %>
+                <% else %>
+                  <%= image_tag current_user.image.url, size: '30x30' %>
+                <% end %>
+                <%= current_user.name %>
+              </li>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                 <%= link_to "マイページ", mypage_users_path, class: "dropdown-item" %>
+                <a class="dropdown-item" href="#">設定</a>
+                <%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+              </div>
+            </div>
           </ul>
       <% end %>
     </div>

@@ -1,0 +1,25 @@
+<div class="container mx-auto p-0 mb-5 mt-5">
+  <div class="row">
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <% if current_user.image.blank? %>
+          <%= image_tag 'default_user.png', class: "img-fluid" %>
+        <% else %>
+          <%= image_tag current_user.image.url, size: '200x200' %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title">自己紹介</h5>
+          <p class="card-text">テックエキスパート63期のmattです</p>
+          <a href="#" class="btn btn-secondary">Edit profile</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      投稿一覧
+    </div>
+    <div class="col">
+      
+    </div>
+  </div>
+  </div>
+</div>
