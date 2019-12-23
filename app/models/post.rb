@@ -8,6 +8,7 @@ class Post < ApplicationRecord
 
   validates :url, presence: true
   validates :url, uniqueness: true 
+  validates :url, format: URI::regexp(%w[http https])
   belongs_to :user
 
   def self.search(search)

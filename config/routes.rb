@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :users do
     collection do
-      get 'dashboard'
+      get 'mypage'
     end
   end
 

@@ -9,7 +9,8 @@ class UsersController < ApplicationController
     @posts = user.posts
   end
 
-  def dashboard
+  def mypage
+    @posts = current_user.posts
   end
 
 end
