@@ -5,11 +5,7 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index, :new, :create, :destroy]
 
-  resources :users do
-    collection do
-      get 'mypage'
-    end
-  end
+  resources :users, only: [:show]
 
   resources :posts do
     collection do
