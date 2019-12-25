@@ -14,4 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :profiles, only: [:new, :create, :edit, :update]
+
+
 end
