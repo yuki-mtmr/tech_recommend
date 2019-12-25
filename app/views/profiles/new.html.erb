@@ -1,0 +1,10 @@
+<div class="container mx-auto p-0 mb-5 mt-5">
+  <div class="container col-6">
+    <%= form_with(model: @profile, local: true, class: "text-center") do |form| %>
+      <h3>
+        自己紹介
+      </h3>
+      <%= render partial: "form", locals: { form: form } %>
+    <% end %>
+  </div>
+</div>
