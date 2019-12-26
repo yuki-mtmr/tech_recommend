@@ -6,7 +6,6 @@ class PostsController < ApplicationController
   end
 
   def new
-    render :layout => false
     @post = Post.new
   end
 
