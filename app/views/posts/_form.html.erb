@@ -6,7 +6,7 @@
   <%= f.text_field :url, class: "col-md-5", placeholder: "おすすめの記事のURL" %>
   
   <div class="col-md-6 mx-auto mt-2 mb-2">
-    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |box| %>
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name, include_hidden: false) do |box| %>
       <%= box.label do %>
         <%= box.check_box %>
         <%= box.text %>
