@@ -13,12 +13,12 @@
           カテゴリーを選択<br>
         </div>
         <div class="col-md-6 mx-auto mt-2 mb-2">
-        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |box| %>
-          <%= box.label do %>
-            <%= box.check_box %>
-            <%= box.text %>
-           <% end %>
-        <% end %>
+        <%# <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |box| %>
+          <%# <%= box.label do %>
+            <%# <%= box.check_box %>
+            <%# <%= box.text %>
+           <%# <% end %>
+        <%# <% end %>
         ああああああああああああああああああ
         </div>
         <%= f.submit "投稿する", class: "btn btn-outline-secondary mb-2" %>
