@@ -3,30 +3,7 @@
 <div class="contents row">
   <div class="container text-center">
     <div class="form-group">
-      <%= form_with(model: @post, local: true) do |f| %>
-        <p class="text-muted pt-5">
-          テックエキスパートで勉強する時に役立つ記事を投稿してください。
-        </p>
-        <%= image_tag 'article_tech.png', class: "img-fluid mx-auto d-block col-md-4  pb-3" %>
-        <%= f.text_field :url, class: "col-md-5", placeholder: "おすすめの記事のURL" %>
-        
-        <div class="col-md-6 mx-auto mt-2 mb-2">
-        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |box| %>
-          <%= box.label do %>
-            <%= box.check_box %>
-            <%= box.text %>
-          <% end %>
-        <% end %>
-        </div>
-        <%= f.submit "投稿する", class: "btn btn-outline-secondary mb-2" %>
-        <nav class="navbar navbar-expand-lg navbar-light justify-content-center">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="/">TOP</a>
-              </li>
-            </ul>
-        </nav>
-      <% end %>
+      <%= render "form" %>
     </div>
   </div>
 </div>
