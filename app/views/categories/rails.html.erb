@@ -1,0 +1,29 @@
+<%= render 'posts/search'%>
+<div class="card-group mx-auto" style="width: 80%;">
+  <% @posts.each do |post| %>
+    <div class="col-md-3 mb-3">
+    rails
+      <a href="<%= post.url %>" target="_blank" rel="noopener">
+        <div class="zoomIn">
+          <img src="<%= post.img %>" width="200" height="200" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= truncate(post.title.to_s, length:50)%></h5>
+          <p class="card-text"><%= truncate(post.description.to_s, length:50)%></p>
+        </div>
+      </a>
+        <p class="card-text d-flex justify-content-between">
+          <a href="/users/<%= post.user.id %>">
+            <%= post.user.name %>
+          </a>
+          <% if user_signed_in? && current_user.id == post.user_id %>
+            <small>
+              <%= link_to post_path(post.id), method: :delete do %> 
+                <%= icon("fas", "trash-alt")%>
+              <% end %>
+            </small>
+          <% end %>
+        </p>
+    </div>
+  <% end %>
+</div>

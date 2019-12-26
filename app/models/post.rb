@@ -3,13 +3,15 @@ class Post < ApplicationRecord
   require 'nokogiri'
   require 'open-uri'
 
-
   before_save :scrape
+
+  belongs_to :user
+  has_many :post_categories
+  has_many :categories, through: :post_categories
 
   validates :url, presence: true
   validates :url, uniqueness: true 
   validates :url, format: URI::regexp(%w[http https])
-  belongs_to :user
 
   def self.search(search)
     return Post.all unless search

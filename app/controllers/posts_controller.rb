@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:user).order("created_at DESC")
+
   end
 
   def new
@@ -10,7 +11,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    redirect_to root_path, notice: '投稿を追加しました。'
+    if @post.save
+      redirect_to root_path, notice: '投稿を追加しました。'
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -26,7 +31,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:url).merge(user_id: current_user.id)
+    params.require(:post).permit(:url, category_ids: []).merge(user_id: current_user.id)
 
   end
 
