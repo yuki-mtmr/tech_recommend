@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
 
-  has_many :category_posts
-  has_many :posts, through: :category_posts
+  has_many :post_categories
+  has_many :posts, through: :post_categories
 
 end

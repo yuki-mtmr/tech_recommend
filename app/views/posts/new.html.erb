@@ -3,14 +3,17 @@
 <div class="contents row">
   <div class="container text-center">
     <div class="form-group">
-      <%= form_with(model: @post, local: true) do |form| %>
+      <%= form_with(model: @post, local: true) do |f| %>
         <p class="text-muted pt-5">
           テックエキスパートで勉強する時に役立つ記事を投稿してください。
         </p>
         <%= image_tag 'article_tech.png', class: "img-fluid mx-auto d-block col-md-4  pb-3" %>
-        <%= form.text_field :url, class: "col-md-5", placeholder: "おすすめの記事のURL" %>
+        <%= f.text_field :url, class: "col-md-5", placeholder: "おすすめの記事のURL" %>
+        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+          <%= b.label { b.check_box + b.text } %>
+        <% end %>
       </div>
-        <%= form.submit "投稿する", class: "btn btn-outline-secondary mb-2" %>
+        <%= f.submit "投稿する", class: "btn btn-outline-secondary mb-2" %>
         <nav class="navbar navbar-expand-lg navbar-light justify-content-center">
             <ul class="navbar-nav">
               <li class="nav-item">

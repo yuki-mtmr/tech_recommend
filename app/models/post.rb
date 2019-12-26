@@ -6,9 +6,9 @@ class Post < ApplicationRecord
   before_save :scrape
 
   belongs_to :user
-  has_many :category_posts
-  has_many :categoryss, through: :category_posts
-  
+  has_many :post_categories
+  has_many :categories, through: :post_categories
+
   validates :url, presence: true
   validates :url, uniqueness: true 
   validates :url, format: URI::regexp(%w[http https])
