@@ -6,12 +6,37 @@
   <%= f.text_field :url, class: "col-md-5", placeholder: "おすすめの記事のURL" %>
   
   <div class="col-md-6 mx-auto mt-2 mb-2">
-    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name, include_hidden: false) do |box| %>
-      <%= box.label do %>
-        <%= box.check_box %>
-        <%= box.text %>
-      <% end %>
-    <% end %>
+    <div class="form-group">
+      <label class="label-checkbox" for="post_category_ids_1">
+          <input id="post_category_ids_1" name="post[category_ids][]" type="checkbox" value="1">
+          <span class="custom-checkbox"></span>ruby
+      </label>
+      <input name="post[category_ids][]" type="hidden" value=""> 
+
+      <label class="label-checkbox" for="post_category_ids_2">
+          <input id="post_category_ids_2" name="post[category_ids][]" type="checkbox" value="2">
+          <span class="custom-checkbox"></span>rails
+      </label>
+      <input name="post[category_ids][]" type="hidden" value=""> 
+
+      <label class="label-checkbox" for="post_category_ids_3">
+          <input id="post_category_ids_3" name="post[category_ids][]" type="checkbox" value="3">
+          <span class="custom-checkbox"></span>aws
+      </label>
+      <input name="post[category_ids][]" type="hidden" value=""> 
+
+      <label class="label-checkbox" for="post_category_ids_4">
+          <input id="post_category_ids_4" name="post[category_ids][]" type="checkbox" value="4">
+          <span class="custom-checkbox"></span>JS
+      </label>
+      <input name="post[category_ids][]" type="hidden" value=""> 
+
+      <label class="label-checkbox" for="post_category_ids_5">
+          <input id="post_category_ids_5" name="post[category_ids][]" type="checkbox" value="5">
+          <span class="custom-checkbox"></span>docker
+      </label>
+      <input name="post[category_ids][]" type="hidden" value=""> 
+    </div>
   </div>
   <%= f.submit "投稿する", class: "btn btn-outline-secondary mb-2" %>
   <nav class="navbar navbar-expand-lg navbar-light justify-content-center">
