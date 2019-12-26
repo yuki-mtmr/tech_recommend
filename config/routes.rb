@@ -14,6 +14,16 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :categories do
+    collection do
+      get 'ruby'
+      get 'rails'
+      get 'aws'
+      get 'js'
+      get 'docker'
+    end
+  end
+
   resources :profiles, only: [:new, :create, :edit, :update]
 
 
