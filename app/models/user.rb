@@ -4,8 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable,omniauth_providers: [:facebook, :google_oauth2]
 
-  has_many :posts
-  has_one :profiles
+  has_many :posts, dependent: :destroy
+  has_one :profiles, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
+
+  def already_liked?(post)
+    self.likes.exists?(post_id: post.id)
+  end
 
   mount_uploader :image, ImageUploader
 

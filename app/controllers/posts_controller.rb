@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:user).order("created_at DESC")
-
+    @like = Like.new
   end
 
   def new

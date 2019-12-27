@@ -8,10 +8,22 @@
         <p class="card-text"><%= truncate(post.description.to_s, length:50)%></p>
       </div>
     </a>
-      <p class="card-text d-flex justify-content-between">
+      <div class="card-text d-flex justify-content-between">
         <a href="/users/<%= post.user.id %>">
           <%= post.user.name %>
         </a>
+        <div>
+          <% if current_user.already_liked?(post) %>
+            <%= link_to post_like_path([post.id],id: post.id), method: :delete do %>
+              <%= icon("fas", "heart text-success")%>
+            <% end %>
+          <% else %> 
+            <%= link_to post_likes_path(post.id), method: :post do %>
+              <%= icon("far", "heart text-success")%>
+            <% end %>
+          <% end %>
+          <%= post.likes.count %>
+        </div>
         <% if user_signed_in? && current_user.id == post.user_id %>
           <small>
             <%= link_to post_path(post.id), method: :delete do %> 
@@ -19,5 +31,5 @@
             <% end %>
           </small>
         <% end %>
-      </p>
+      </div>
   </div>
