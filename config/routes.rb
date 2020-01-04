@@ -7,7 +7,10 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
 
+  resources :likes, only: [:show]
+
   resources :users, only: [:show]
+
 
   resources :posts do
     collection do
