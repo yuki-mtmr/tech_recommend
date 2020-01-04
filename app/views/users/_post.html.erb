@@ -1,0 +1,16 @@
+<% @posts.each do |post| %>
+  <a href="<%= post.url %>" target="_blank" rel="noopener">
+    <div class="card mt-2 mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-1 ml-3 mt-3">
+          <%= image_tag post.img, class: "img-fluid" %>
+        </div>
+        <div class="col-md-10 mb-0">
+          <div class="card-body">
+            <h6 class="card-title"><%= truncate(post.title.to_s, length:40) %></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+<% end %>

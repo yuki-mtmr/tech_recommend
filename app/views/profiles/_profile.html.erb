@@ -1,0 +1,43 @@
+<div class="col-4">
+  <div class="card" style="width: 18rem;">
+    <% if @user.image.blank? %>
+      <%= image_tag 'default_user.png', class: "img-fluid" %>
+    <% else %>
+      <%= image_tag @user.image.url, class: "img-fluid" %>
+    <% end %>
+    <div class="card-body">
+      <h5 class="card-title text-secondary"><%= @user.name %></h5>
+      <p class="card-text text-muted">
+        <% if @profile.nil? %>
+          よろしくお願いします。
+        <% elsif @profile.content && @profile.region && @profile.website %>
+          <p> <%= @profile.content %> </p>
+          <p> <i class="fas fa-map-marker-alt"></i> <%= @profile.region %> </p>
+          <p> <%= @profile.website %> </p>
+        <% elsif @profile.content && @profile.region %>
+          <p> <%= @profile.content %> </p>
+          <p> <i class="fas fa-map-marker-alt"></i> <%= @profile.region %> </p>
+        <% elsif @profile.website && @profile.region %>
+          <p> <%= @profile.website %> </p>
+          <p> <i class="fas fa-map-marker-alt"></i> <%= @profile.region %> </p>
+        <% elsif @profile.content && @profile.website %>
+          <p> <%= @profile.content %> </p>
+          <p> <%= @profile.website %> </p>
+        <% elsif @profile.content %>
+          <p> <%= @profile.content %> </p>
+        <% elsif @profile.region %>
+          <p> <i class="fas fa-map-marker-alt"></i> <%= @profile.region %> </p>
+        <% elsif @profile.website %>
+          <p> <%= @profile.website %> </p>
+        <% end %>
+      </p>
+      <% if current_user == @user %>
+        <% if @profile.blank? %>
+          <%= link_to "プロフィールを書く", "/profiles/new/", class: "btn btn-secondary" %>
+        <% else %>
+          <%= link_to "プロフィールを編集する", edit_profile_path(@profile.id), method: :get, class: "btn btn-secondary" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
