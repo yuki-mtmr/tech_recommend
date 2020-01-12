@@ -13,7 +13,7 @@ class Post < ApplicationRecord
 
   validates :url, presence: true
   validates :url, uniqueness: true 
-  validates :url, format: URI::regexp(%w[http https])
+  validates :url, format: /\A#{URI::regexp(%w(http https))}\z/
 
   def self.search(search)
     return Post.all unless search

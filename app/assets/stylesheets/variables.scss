@@ -3,3 +3,16 @@ $rails: #990000;
 $aws: #fa8d00;
 $docker: #009bf2;
 $js: #f6d400;
+$red: #ff8080;
+$gray: #8585ad;
+$light-gray: #9494b8;
+
+.red {
+  color: $red;
+}
+.gray {
+  color: $gray;
+}
+.light-gray {
+  color: $light-gray;
+}
