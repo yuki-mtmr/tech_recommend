@@ -1,9 +1,12 @@
 <%= form_with(model: @post, local: true) do |f| %>
-  <p class="text-muted pt-5">
+  <p class="gray pt-5">
     テックエキスパートで勉強する時に役立つ記事を投稿してください。
   </p>
   <%= image_tag 'article_tech.png', class: "img-fluid mx-auto d-block col-md-4  pb-3" %>
   <%= f.text_field :url, class: "col-md-5", placeholder: "おすすめの記事のURL" %>
+  <div class="red">
+    <%= @post.errors.full_messages_for(:url).first%>
+  </div>
   
   <div class="col-md-6 mx-auto mt-2 mb-2">
     <div class="form-group">

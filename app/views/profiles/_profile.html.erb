@@ -7,7 +7,7 @@
     <% end %>
     <div class="card-body">
       <h5 class="card-title text-secondary"><%= @user.name %></h5>
-      <p class="card-text text-muted">
+      <p class="card-text gray">
         <% if @profile.nil? %>
           よろしくお願いします。
         <% elsif @profile.content && @profile.region && @profile.website %>
