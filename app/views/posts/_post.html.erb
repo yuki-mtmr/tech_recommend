@@ -14,6 +14,11 @@
   </a>
     <div class="card-text d-flex justify-content-between">
       <a href="/users/<%= post.user.id %>">
+        <% if post.user.image.present? %>
+          <img src="<%= post.user.image %>" width="20" height="20">
+        <% else %>
+          <img src="assets/default_user.png" width="20" height="20">
+        <% end %>
         <%= post.user.name %>
       </a>
       <div>
