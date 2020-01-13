@@ -29,6 +29,9 @@ class Post < ApplicationRecord
     end
     doc = Nokogiri::HTML.parse(html, charset)
     img = doc.css('//meta[property="og:image"]/@content').to_s
+    if img.length > 255
+      img = ''
+    end
     title = doc.title.to_s
     description = doc.css('//meta[property="og:description"]/@content').to_s
     self.img = img
