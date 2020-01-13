@@ -26,7 +26,7 @@ http://3.114.118.86/
 # Function
 - Log_in
 - Log_out
-- Sign_in
+- Sign_up
 - New post
 - Destory post
 - profile
