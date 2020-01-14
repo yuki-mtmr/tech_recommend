@@ -2,9 +2,15 @@
 <div class="container mx-auto my-5" style="width: 80%">
   <div class="row">
     <%= render "profiles/profile" %>
-    <div class="col-6">
+    <div class="col-sm-6 col-md-8 col-lg-8 mt-4">
       投稿一覧
-      <%= render "post" %>
+      <% if @user.liked_posts.blank? %>
+        <div class="gray mt-3">
+          まだ投稿した記事がありません
+        </div>
+      <% else %>
+        <%= render "post" %>
+      <% end %>
   </div>
   </div>
 </div>

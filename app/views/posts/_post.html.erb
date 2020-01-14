@@ -4,7 +4,7 @@
       <% if post.img.present? %>
         <img src="<%= post.img %>" width="200" height="200" class="card-img-top">
       <% else %>
-        <img src="assets/noimage.jpg" width="200" height="200" class="card-img-top">
+        <%= image_tag 'noimage.jpg', class: "card-img-top", size: '200x200' %>
       <% end %>
     </div>
     <div class="card-body">

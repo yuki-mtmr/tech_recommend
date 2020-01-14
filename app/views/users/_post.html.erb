@@ -3,7 +3,11 @@
     <div class="card mt-2 mb-3">
       <div class="row no-gutters">
         <div class="col-md-1 ml-3 mt-3">
-          <%= image_tag post.img, class: "img-fluid" %>
+          <% if post.img.present? %>
+            <%= image_tag post.img, class: "img-fluid" %>
+          <% else %>
+            <%= image_tag 'noimage.jpg', class: "img-fluid" %>
+          <% end %>
         </div>
         <div class="col-md-10 mb-0">
           <div class="card-body">

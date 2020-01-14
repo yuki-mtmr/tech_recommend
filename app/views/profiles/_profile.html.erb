@@ -6,7 +6,19 @@
       <%= image_tag @user.image.url, class: "img-fluid" %>
     <% end %>
     <div class="card-body">
-      <h5 class="card-title text-secondary"><%= @user.name %></h5>
+      <h5 class="card-title text-secondary text-center"><%= @user.name %></h5>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">投稿記事数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center"><%= @user.posts.length %></td>
+          </tr>
+        </tbody>
+      </table>
       <p class="card-text gray">
         <% if @profile.nil? %>
           よろしくお願いします。
