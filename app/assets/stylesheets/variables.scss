@@ -6,6 +6,7 @@ $js: #f6d400;
 $red: #ff8080;
 $gray: #8585ad;
 $light-gray: #9494b8;
+$ghost-white: #f8f8ff;
 
 .red {
   color: $red;
@@ -15,4 +16,7 @@ $light-gray: #9494b8;
 }
 .light-gray {
   color: $light-gray;
+}
+.white {
+  background-color: $ghost-white;
 }
