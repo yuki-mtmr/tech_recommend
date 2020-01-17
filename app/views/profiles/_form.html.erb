@@ -1,4 +1,9 @@
-<%= form.text_area :content, placeholder: "text" , rows: "10", class: "d-block mx-auto mb-3 col-6" %>
-<%= form.text_field :region, placeholder: "場所", class: "d-block mx-auto mb-3 col-6"%>
-<%= form.text_field :website, placeholder: "Url", class: "d-block mx-auto mb-3 col-6" %>
-<%= form.submit "SEND" %>
+<div class='form-group'>
+  <%= form.text_area :content, placeholder: "text" , rows: "10", class: 'form-control' %>
+  </br>
+  <%= form.text_field :region, placeholder: "場所", class: 'form-control'%>
+  </br>
+  <%= form.text_field :website, placeholder: "Url", class: 'form-control'%>
+  </br>
+  <%= form.submit "SEND", class: 'btn btn-secondary' %>
+</div>
