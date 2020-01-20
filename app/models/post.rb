@@ -34,6 +34,9 @@ class Post < ApplicationRecord
     end
     title = doc.title.to_s
     description = doc.css('//meta[property="og:description"]/@content').to_s
+    while description.length > 255 do
+      description = description.chop
+    end
     self.img = img
     self.title = title
     self.description = description
