@@ -6,7 +6,11 @@
     <div class="col-md-3 mb-3">
       <a href="<%= post.url %>" target="_blank" rel="noopener">
         <div class="zoomIn">
-          <img src="<%= post.img %>" width="200" height="200" class="card-img-top" alt="...">
+          <% if post.img.present? %>
+            <img src="<%= post.img %>" width="200" height="200" class="card-img-top">
+          <% else %>
+            <%= image_tag 'noimage.jpg', class: "card-img-top", size: '200x200' %>
+          <% end %>
         </div>
         <div class="card-body">
           <h5 class="card-title"><%= truncate(post.title.to_s, length:50)%></h5>
@@ -31,9 +35,10 @@
           </div>
           <% if user_signed_in? && current_user.id == post.user_id %>
             <small>
-              <%= link_to post_path(post.id), method: :delete do %> 
-                <%= icon("fas", "trash-alt")%>
-              <% end %>
+              <%= link_to post_path(post.id), method: :delete,data:{confirm:"本当に削除しますか？",
+        commit:"削除する",cancel:"やめる",title:"ご確認ください" } do %> 
+            <%= icon("fas", "trash-alt")%>
+          <% end %>
             </small>
           <% end %>
         </div>

@@ -35,7 +35,8 @@
       </div>
       <% if user_signed_in? && current_user.id == post.user_id %>
         <small>
-          <%= link_to post_path(post.id), method: :delete do %> 
+          <%= link_to post_path(post.id), method: :delete,data:{confirm:"本当に削除しますか？",
+        commit:"削除する",cancel:"やめる",title:"ご確認ください" } do %> 
             <%= icon("fas", "trash-alt")%>
           <% end %>
         </small>
