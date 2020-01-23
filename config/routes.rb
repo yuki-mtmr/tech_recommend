@@ -31,5 +31,11 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:new, :create, :edit, :update]
 
+  get '/blocks', to: 'blocks#index'
+  post '/block/transactions', to: 'block/transactions#create'
+  post '/blocks', to: 'blocks#create'
+  post '/nodes', to: 'nodes#create'
+  put '/blocks', to: 'blocks#update_all'
+
 
 end

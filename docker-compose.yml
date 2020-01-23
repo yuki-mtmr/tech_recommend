@@ -1,0 +1,12 @@
+version: '3'
+services:
+  rails1:
+    build: .
+    volumes:
+      - ./:/var/www/blockchain
+  rails2:
+    build: .
+    volumes:
+      - ./:/var/www/blockchain
+  curl:
+    image: byrnedo/alpine-curl
