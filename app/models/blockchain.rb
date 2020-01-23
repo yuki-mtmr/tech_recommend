@@ -46,8 +46,8 @@ class Blockchain
 
     max_length = @chain.size
     @nodes.each do |node|
-      io = OpenURI.open_url("http://#{node}/blocks")
-      response = JSON.parse(io.read).deep_symbolise_keys!
+      io = OpenURI.open_uri("http://#{node}/blocks")
+      response = JSON.parse(io.read).deep_symbolize_keys!
       status = io.status[0]
 
       if status == "200"
