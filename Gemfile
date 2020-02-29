@@ -80,7 +80,7 @@ gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 
 gem 'dotenv-rails'
-gem 'nokogiri'
+gem 'nokogiri', ">= 1.10.8"
 
 gem 'bootstrap', '~> 4.3.1'
 gem 'sprockets-rails'
